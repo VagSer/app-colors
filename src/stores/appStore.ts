@@ -39,10 +39,17 @@ const useAppStore = defineStore('appStore', () => {
     })
 
     const updateColor = (listId: number, itemId: number, newColor: string) => {
+        let oldColor = ''
         const targetList = Lists.value.findIndex(list => list.id === listId)
         Lists.value[targetList]?.items.forEach(item => {
             if (item.id === itemId) {
+                oldColor = item.color
                 item.color = newColor
+            }
+        })
+        Selected.value.forEach(square => {
+            if (square.color === oldColor) {
+                square.color = newColor
             }
         })
     }

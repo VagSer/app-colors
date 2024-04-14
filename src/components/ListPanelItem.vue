@@ -39,12 +39,14 @@ const buttonText = computed(() => props.list.isSorted? 'Перемешать' : 
 <template>
     <details>
         <summary>
-            <span>
-                List {{ props.list.id }}
-            </span>
-            <button @click="appStore.updateSorted(props.list.id)">
-                {{ buttonText }}
-            </button>
+            <div class="listHeader">
+                <span>
+                    List {{ props.list.id }}
+                </span>
+                <button @click="appStore.updateSorted(props.list.id)">
+                    {{ buttonText }}
+                </button>
+            </div>
         </summary>
         <div class="squareField">
             <ListPanelItemSquare
@@ -59,11 +61,7 @@ const buttonText = computed(() => props.list.isSorted? 'Перемешать' : 
 </template>
 
 <style scoped>
-.squareField {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 4px;
+details {
+    margin: 12px;
 }
 </style>

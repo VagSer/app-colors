@@ -16,6 +16,7 @@ defineProps<{
 
 <style scoped>
 .square {
+    cursor: pointer;
     width: 20px;
     aspect-ratio: 1/1;
     background-color: v-bind(color);

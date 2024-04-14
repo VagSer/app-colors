@@ -15,7 +15,14 @@ import ListSelected from './components/ListSelected.vue'
 
 <style scoped>
 main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
+  }
+
+@media screen and (width > 480px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

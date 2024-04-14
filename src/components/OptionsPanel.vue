@@ -12,4 +12,7 @@ const appStore = useAppStore()
 </template>
 
 <style scoped>
+details {
+    margin: 12px;
+}
 </style>

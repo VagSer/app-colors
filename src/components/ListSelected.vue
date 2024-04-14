@@ -7,13 +7,15 @@ const appStore = useAppStore()
 
 <template>
     <article class="mainItem">
-        <ListPanelItemSquare 
-            v-for="item of appStore.Selected"
-            :key="item.id"
-            :id="item.id"
-            :listId="item.listId"
-            :color="item.color"
-        />
+        <section class="squareField">
+            <ListPanelItemSquare 
+                v-for="item of appStore.Selected"
+                :key="item.id"
+                :id="item.id"
+                :listId="item.listId"
+                :color="item.color"
+            />
+        </section>
     </article>
 </template>
 
@@ -22,7 +24,7 @@ article {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 4px;
     align-items: flex-start;
     padding: 4px;
 }

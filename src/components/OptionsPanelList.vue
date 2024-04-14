@@ -2,6 +2,7 @@
 import OptionsPanelListItem from './OptionsPanelListItem.vue';
 import { List } from '../types';
 import useAppStore from '../stores/appStore';
+import { ref, watch } from 'vue';
 
 const appStore = useAppStore()
 
@@ -9,8 +10,12 @@ const props = defineProps<{
     list: List
 }>()
 
-const toggleList = (event) => {
-    if (event.target.checked) {
+const isChecked = ref(false)
+
+const toggleList = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+
+    if (target.checked) {
         appStore.ListsSquares.forEach(square => {
             if (square.listId === props.list.id) {
                 const isSelected = appStore.Selected.some(item => item.id === square.id)
@@ -28,15 +33,29 @@ const toggleList = (event) => {
         })
     }
 }
+
+watch(() => appStore.Selected.length,
+() => {
+    let allList = [...appStore.ListsSquares].filter(square => square.listId === props.list.id)
+    let selectedList = [...appStore.Selected].filter(square => square.listId === props.list.id)
+    isChecked.value = allList.length === selectedList.length
+})
 </script>
 
 <template>
     <details>
         <summary>
-            <label id="listId">
-                List {{ props.list.id }}
-            </label>
-            <input type="checkbox" for="listId" @change="toggleList">
+            <div class="listHeader">
+                <label for="listId" >
+                    List {{ props.list.id }}
+                </label>
+                <input 
+                    type="checkbox" 
+                    id="listId"
+                    v-model="isChecked"
+                    @change="toggleList"
+                >
+            </div>
         </summary>
         <ol>
             <OptionsPanelListItem 
@@ -50,7 +69,8 @@ const toggleList = (event) => {
 </template>
 
 <style scoped>
-summary {
-    width: 50%;
+.listHeader {
+    flex-direction: row-reverse;
+    justify-content: start;
 }
 </style>

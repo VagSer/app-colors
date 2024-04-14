@@ -1,9 +1,27 @@
-.square {
-    width: 20px;
-    aspect-ratio: 1/1;
+button {
+    color: white;
+    background-color: oklch(65.52% 0.11 212.17);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
 }
 
 .mainItem {
     padding: 12px;
     border: 1px solid;
+}
+
+.squareField {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
+}
+
+.listHeader {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
 }
