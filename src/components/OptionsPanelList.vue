@@ -70,6 +70,7 @@ watch(() => appStore.Selected.length,
 
 <style scoped>
 .listHeader {
+    align-items: baseline;
     flex-direction: row-reverse;
     justify-content: start;
 }

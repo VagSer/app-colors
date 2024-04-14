@@ -19,7 +19,7 @@ main {
     flex-direction: column;
   }
 
-@media screen and (width > 480px) {
+@media screen and (width > 768px) {
   main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

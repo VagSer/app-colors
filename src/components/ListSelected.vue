@@ -7,6 +7,7 @@ const appStore = useAppStore()
 
 <template>
     <article class="mainItem">
+        <h2>Selected Items</h2>
         <section class="squareField">
             <ListPanelItemSquare 
                 v-for="item of appStore.Selected"
@@ -22,8 +23,7 @@ const appStore = useAppStore()
 <style scoped>
 article {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 4px;
     align-items: flex-start;
     padding: 4px;
