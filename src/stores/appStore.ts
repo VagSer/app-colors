@@ -48,7 +48,7 @@ const useAppStore = defineStore('appStore', () => {
             }
         })
         Selected.value.forEach(square => {
-            if (square.color === oldColor) {
+            if (square.listId === listId && square.color === oldColor) {
                 square.color = newColor
             }
         })
