@@ -53,11 +53,13 @@ watch(() => appStore.Selected.length,
         <input 
             type="number"
             class="inputHowMany"
+            inputmode="numeric"
+            placeholder="Кол-во"
             :value="props.item.howMany"
             @change="(event: Event) => {
                 const target = event.target as HTMLInputElement;
                 if (target.value) {
-                    appStore.updateHowMany(props.listId, props.item.id, +target.value)
+                    appStore.updateHowMany(props.listId, props.item.id, Math.round(+target.value))
                 }
             }"
         />
